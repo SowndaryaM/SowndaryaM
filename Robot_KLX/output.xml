@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.11.4 on win32)" generated="20240317 12:47:24.611" rpa="false" schemaversion="2">
+<suite id="s1" name="Automationexcercise2" source="C:\Users\raghu\eclipse-workspace\Automationexcercise2">
+<suite id="s1-s1" name="AddToCartFlow" source="C:\Users\raghu\eclipse-workspace\Automationexcercise2\AddToCartFlow.robot">
+<test id="s1-s1-t1" name="Perform Product Purchase">
+<kw name="Open Browser To Page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<msg timestamp="20240317 12:47:25.081" level="INFO">Opening browser 'Chrome' to base url 'http://automationexercise.com'.</msg>
+<status status="PASS" starttime="20240317 12:47:25.080" endtime="20240317 12:47:30.012"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240317 12:47:30.013" endtime="20240317 12:47:30.142"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Automation Exercise</arg>
+<doc>Verifies that current page title equals ``title``.</doc>
+<msg timestamp="20240317 12:47:30.158" level="INFO">Page title is 'Automation Exercise'.</msg>
+<status status="PASS" starttime="20240317 12:47:30.143" endtime="20240317 12:47:30.158"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:25.079" endtime="20240317 12:47:30.158"/>
+</kw>
+<kw name="Click Products Menu">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath=//a[@href='/products']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20240317 12:47:30.159" level="INFO">Clicking link 'xpath=//a[@href='/products']'.</msg>
+<status status="PASS" starttime="20240317 12:47:30.159" endtime="20240317 12:47:31.850"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Automation Exercise - All Products</arg>
+<doc>Verifies that current page title equals ``title``.</doc>
+<msg timestamp="20240317 12:47:31.861" level="INFO">Page title is 'Automation Exercise - All Products'.</msg>
+<status status="PASS" starttime="20240317 12:47:31.851" endtime="20240317 12:47:31.861"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:30.159" endtime="20240317 12:47:31.862"/>
+</kw>
+<kw name="Verify Search Bar Visibility">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=//input[@id='search_product']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240317 12:47:31.884" level="INFO">Current page contains element 'xpath=//input[@id='search_product']'.</msg>
+<status status="PASS" starttime="20240317 12:47:31.862" endtime="20240317 12:47:31.884"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:31.862" endtime="20240317 12:47:31.885"/>
+</kw>
+<kw name="Search Product">
+<arg>men tshirt</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//input[@id='search_product']</arg>
+<arg>${product}</arg>
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<msg timestamp="20240317 12:47:31.886" level="INFO">Typing text 'men tshirt' into text field 'xpath=//input[@id='search_product']'.</msg>
+<status status="PASS" starttime="20240317 12:47:31.886" endtime="20240317 12:47:32.160"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:31.885" endtime="20240317 12:47:32.161"/>
+</kw>
+<kw name="Click Search Button">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[@id='submit_search']</arg>
+<doc>Clicks button identified by ``locator``.</doc>
+<msg timestamp="20240317 12:47:32.163" level="INFO">Clicking button 'xpath=//button[@id='submit_search']'.</msg>
+<status status="PASS" starttime="20240317 12:47:32.163" endtime="20240317 12:47:33.073"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240317 12:47:43.077" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20240317 12:47:33.075" endtime="20240317 12:47:43.077"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:32.161" endtime="20240317 12:47:43.078"/>
+</kw>
+<kw name="Verify Product Visibility">
+<arg>men tshirt</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=//div[@class='features_items']//div[@class='col-sm-4']//div[@class='overlay-content']/p</arg>
+<arg>${product}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240317 12:47:43.100" level="INFO">Current page contains element 'xpath=//div[@class='features_items']//div[@class='col-sm-4']//div[@class='overlay-content']/p'.</msg>
+<status status="PASS" starttime="20240317 12:47:43.080" endtime="20240317 12:47:43.101"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:43.079" endtime="20240317 12:47:43.101"/>
+</kw>
+<kw name="Scroll Window">
+<arg>0</arg>
+<arg>400</arg>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollBy(${x_offset}, ${y_offset})</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20240317 12:47:43.104" level="INFO">Executing JavaScript:
+window.scrollBy(0, 400)
+Without any arguments.</msg>
+<status status="PASS" starttime="20240317 12:47:43.103" endtime="20240317 12:47:43.120"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:43.102" endtime="20240317 12:47:43.121"/>
+</kw>
+<kw name="Add Product To Cart">
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240317 12:47:48.124" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20240317 12:47:43.122" endtime="20240317 12:47:48.125"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>xpath=//div[@class='product-image-wrapper']</arg>
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<msg timestamp="20240317 12:47:48.126" level="INFO">Simulating Mouse Over on element 'xpath=//div[@class='product-image-wrapper']'.</msg>
+<status status="PASS" starttime="20240317 12:47:48.125" endtime="20240317 12:47:48.457"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[@class='features_items']//div[@class='col-sm-4']//div[@class='overlay-content']/a[@class='btn btn-default add-to-cart']</arg>
+<doc>Click element identified by ``locator``.</doc>
+<msg timestamp="20240317 12:47:48.460" level="INFO">Clicking element 'xpath=//div[@class='features_items']//div[@class='col-sm-4']//div[@class='overlay-content']/a[@class='btn btn-default add-to-cart']'.</msg>
+<status status="PASS" starttime="20240317 12:47:48.459" endtime="20240317 12:47:48.554"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240317 12:47:53.556" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20240317 12:47:48.555" endtime="20240317 12:47:53.557"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[@class='btn btn-success close-modal btn-block']</arg>
+<doc>Clicks button identified by ``locator``.</doc>
+<msg timestamp="20240317 12:47:53.559" level="INFO">Clicking button 'xpath=//button[@class='btn btn-success close-modal btn-block']'.</msg>
+<status status="PASS" starttime="20240317 12:47:53.558" endtime="20240317 12:47:53.654"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:43.121" endtime="20240317 12:47:53.655"/>
+</kw>
+<kw name="Clear Text Box">
+<arg>EMPTY</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//input[@id='search_product']</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<msg timestamp="20240317 12:47:53.657" level="INFO">Typing text 'EMPTY' into text field 'xpath=//input[@id='search_product']'.</msg>
+<status status="PASS" starttime="20240317 12:47:53.656" endtime="20240317 12:47:53.804"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:53.655" endtime="20240317 12:47:53.804"/>
+</kw>
+<kw name="Search Product">
+<arg>top</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//input[@id='search_product']</arg>
+<arg>${product}</arg>
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<msg timestamp="20240317 12:47:53.807" level="INFO">Typing text 'top' into text field 'xpath=//input[@id='search_product']'.</msg>
+<status status="PASS" starttime="20240317 12:47:53.806" endtime="20240317 12:47:53.949"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:53.805" endtime="20240317 12:47:53.949"/>
+</kw>
+<kw name="Click Search Button">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[@id='submit_search']</arg>
+<doc>Clicks button identified by ``locator``.</doc>
+<msg timestamp="20240317 12:47:53.953" level="INFO">Clicking button 'xpath=//button[@id='submit_search']'.</msg>
+<status status="PASS" starttime="20240317 12:47:53.953" endtime="20240317 12:47:56.332"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240317 12:48:06.338" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20240317 12:47:56.335" endtime="20240317 12:48:06.339"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:53.951" endtime="20240317 12:48:06.340"/>
+</kw>
+<kw name="Verify Product Visibility">
+<arg>top</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=//div[@class='features_items']//div[@class='col-sm-4']//div[@class='overlay-content']/p</arg>
+<arg>${product}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240317 12:48:06.378" level="INFO">Current page contains element 'xpath=//div[@class='features_items']//div[@class='col-sm-4']//div[@class='overlay-content']/p'.</msg>
+<status status="PASS" starttime="20240317 12:48:06.343" endtime="20240317 12:48:06.378"/>
+</kw>
+<status status="PASS" starttime="20240317 12:48:06.340" endtime="20240317 12:48:06.379"/>
+</kw>
+<kw name="Scroll Window">
+<arg>0</arg>
+<arg>400</arg>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollBy(${x_offset}, ${y_offset})</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20240317 12:48:06.381" level="INFO">Executing JavaScript:
+window.scrollBy(0, 400)
+Without any arguments.</msg>
+<status status="PASS" starttime="20240317 12:48:06.380" endtime="20240317 12:48:06.392"/>
+</kw>
+<status status="PASS" starttime="20240317 12:48:06.379" endtime="20240317 12:48:06.393"/>
+</kw>
+<kw name="Add Product To Cart">
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240317 12:48:11.395" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20240317 12:48:06.395" endtime="20240317 12:48:11.396"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>xpath=//div[@class='product-image-wrapper']</arg>
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<msg timestamp="20240317 12:48:11.399" level="INFO">Simulating Mouse Over on element 'xpath=//div[@class='product-image-wrapper']'.</msg>
+<status status="PASS" starttime="20240317 12:48:11.397" endtime="20240317 12:48:11.715"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[@class='features_items']//div[@class='col-sm-4']//div[@class='overlay-content']/a[@class='btn btn-default add-to-cart']</arg>
+<doc>Click element identified by ``locator``.</doc>
+<msg timestamp="20240317 12:48:11.717" level="INFO">Clicking element 'xpath=//div[@class='features_items']//div[@class='col-sm-4']//div[@class='overlay-content']/a[@class='btn btn-default add-to-cart']'.</msg>
+<status status="PASS" starttime="20240317 12:48:11.716" endtime="20240317 12:48:11.793"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240317 12:48:16.794" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20240317 12:48:11.793" endtime="20240317 12:48:16.795"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[@class='btn btn-success close-modal btn-block']</arg>
+<doc>Clicks button identified by ``locator``.</doc>
+<msg timestamp="20240317 12:48:16.797" level="INFO">Clicking button 'xpath=//button[@class='btn btn-success close-modal btn-block']'.</msg>
+<status status="PASS" starttime="20240317 12:48:16.796" endtime="20240317 12:48:16.906"/>
+</kw>
+<status status="PASS" starttime="20240317 12:48:06.394" endtime="20240317 12:48:16.907"/>
+</kw>
+<kw name="Click Cart Button">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Cart</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20240317 12:48:16.908" level="INFO">Clicking link 'Cart'.</msg>
+<status status="PASS" starttime="20240317 12:48:16.907" endtime="20240317 12:48:18.062"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Automation Exercise - Checkout</arg>
+<doc>Verifies that current page title equals ``title``.</doc>
+<msg timestamp="20240317 12:48:18.074" level="INFO">Page title is 'Automation Exercise - Checkout'.</msg>
+<status status="PASS" starttime="20240317 12:48:18.063" endtime="20240317 12:48:18.074"/>
+</kw>
+<status status="PASS" starttime="20240317 12:48:16.907" endtime="20240317 12:48:18.075"/>
+</kw>
+<kw name="Verify Products In Cart">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(), 'Men Tshirt')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240317 12:48:18.093" level="INFO">Current page contains element 'xpath=//a[contains(text(), 'Men Tshirt')]'.</msg>
+<status status="PASS" starttime="20240317 12:48:18.075" endtime="20240317 12:48:18.094"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(), 'Blue Top')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240317 12:48:18.112" level="INFO">Current page contains element 'xpath=//a[contains(text(), 'Blue Top')]'.</msg>
+<status status="PASS" starttime="20240317 12:48:18.094" endtime="20240317 12:48:18.112"/>
+</kw>
+<status status="PASS" starttime="20240317 12:48:18.075" endtime="20240317 12:48:18.113"/>
+</kw>
+<kw name="Verify Total Product Value">
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{elements}</var>
+<arg>xpath=//td[@class='cart_total']/p[contains(text(),'')]</arg>
+<doc>Returns list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20240317 12:48:18.130" level="INFO">@{elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="eb55986a86c82629d2d54a48451eb170", element="f.D7C364BD5815B0889ACC4FD92BA77A94.d.95C001CD050724E49D6154A10FD3CFAE.e.167")&gt; | &lt;selenium.webd...</msg>
+<status status="PASS" starttime="20240317 12:48:18.113" endtime="20240317 12:48:18.130"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${total_sum}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240317 12:48:18.131" level="INFO">${total_sum} = 0</msg>
+<status status="PASS" starttime="20240317 12:48:18.131" endtime="20240317 12:48:18.131"/>
+</kw>
+<for flavor="IN">
+<var>${element}</var>
+<value>@{elements}</value>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="eb55986a86c82629d2d54a48451eb170", element="f.D7C364BD5815B0889ACC4FD92BA77A94.d.95C001CD050724E49D6154A10FD3CFAE.e.167")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<msg timestamp="20240317 12:48:18.154" level="INFO">${element_text} = Rs. 400</msg>
+<status status="PASS" starttime="20240317 12:48:18.133" endtime="20240317 12:48:18.155"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240317 12:48:18.156" level="INFO">Rs. 400</msg>
+<status status="PASS" starttime="20240317 12:48:18.156" endtime="20240317 12:48:18.156"/>
+</kw>
+<kw name="Get Regexp Matches" library="String">
+<var>${value}</var>
+<arg>${element_text}</arg>
+<arg>\\d+</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<msg timestamp="20240317 12:48:18.159" level="INFO">${value} = ['400']</msg>
+<status status="PASS" starttime="20240317 12:48:18.157" endtime="20240317 12:48:18.159"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${value}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240317 12:48:18.161" level="INFO">400</msg>
+<status status="PASS" starttime="20240317 12:48:18.160" endtime="20240317 12:48:18.161"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${integer_value}</var>
+<arg>${value}[0]</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20240317 12:48:18.164" level="INFO">${integer_value} = 400</msg>
+<status status="PASS" starttime="20240317 12:48:18.162" endtime="20240317 12:48:18.165"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${integer_value}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240317 12:48:18.168" level="INFO">400</msg>
+<status status="PASS" starttime="20240317 12:48:18.166" endtime="20240317 12:48:18.168"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${total_sum}</var>
+<arg>${total_sum} + ${integer_value}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240317 12:48:18.170" level="INFO">${total_sum} = 400</msg>
+<status status="PASS" starttime="20240317 12:48:18.169" endtime="20240317 12:48:18.171"/>
+</kw>
+<status status="PASS" starttime="20240317 12:48:18.133" endtime="20240317 12:48:18.172"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="eb55986a86c82629d2d54a48451eb170", element="f.D7C364BD5815B0889ACC4FD92BA77A94.d.95C001CD050724E49D6154A10FD3CFAE.e.168")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<msg timestamp="20240317 12:48:18.211" level="INFO">${element_text} = Rs. 500</msg>
+<status status="PASS" starttime="20240317 12:48:18.173" endtime="20240317 12:48:18.211"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240317 12:48:18.213" level="INFO">Rs. 500</msg>
+<status status="PASS" starttime="20240317 12:48:18.212" endtime="20240317 12:48:18.213"/>
+</kw>
+<kw name="Get Regexp Matches" library="String">
+<var>${value}</var>
+<arg>${element_text}</arg>
+<arg>\\d+</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<msg timestamp="20240317 12:48:18.215" level="INFO">${value} = ['500']</msg>
+<status status="PASS" starttime="20240317 12:48:18.214" endtime="20240317 12:48:18.216"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${value}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240317 12:48:18.218" level="INFO">500</msg>
+<status status="PASS" starttime="20240317 12:48:18.217" endtime="20240317 12:48:18.219"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${integer_value}</var>
+<arg>${value}[0]</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20240317 12:48:18.220" level="INFO">${integer_value} = 500</msg>
+<status status="PASS" starttime="20240317 12:48:18.219" endtime="20240317 12:48:18.220"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${integer_value}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240317 12:48:18.222" level="INFO">500</msg>
+<status status="PASS" starttime="20240317 12:48:18.221" endtime="20240317 12:48:18.222"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${total_sum}</var>
+<arg>${total_sum} + ${integer_value}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240317 12:48:18.224" level="INFO">${total_sum} = 900</msg>
+<status status="PASS" starttime="20240317 12:48:18.223" endtime="20240317 12:48:18.225"/>
+</kw>
+<status status="PASS" starttime="20240317 12:48:18.173" endtime="20240317 12:48:18.225"/>
+</iter>
+<status status="PASS" starttime="20240317 12:48:18.132" endtime="20240317 12:48:18.226"/>
+</for>
+<kw name="Log" library="BuiltIn">
+<arg>Total Sum: ${total_sum}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240317 12:48:18.227" level="INFO">Total Sum: 900</msg>
+<status status="PASS" starttime="20240317 12:48:18.226" endtime="20240317 12:48:18.228"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${total_sum}</arg>
+<arg>900</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20240317 12:48:18.229" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20240317 12:48:18.228" endtime="20240317 12:48:18.229"/>
+</kw>
+<status status="PASS" starttime="20240317 12:48:18.113" endtime="20240317 12:48:18.229"/>
+</kw>
+<status status="PASS" starttime="20240317 12:47:25.078" endtime="20240317 12:48:18.229"/>
+</test>
+<status status="PASS" starttime="20240317 12:47:24.696" endtime="20240317 12:48:18.231"/>
+</suite>
+<status status="PASS" starttime="20240317 12:47:24.666" endtime="20240317 12:48:18.234"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Automationexcercise2">Automationexcercise2</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="AddToCartFlow">Automationexcercise2.AddToCartFlow</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240317 12:47:25.076" level="ERROR">Error in file 'C:\Users\raghu\eclipse-workspace\Automationexcercise2\AddToCartFlow.robot' on line 5: Importing library 'Evaluate' failed: ModuleNotFoundError: No module named 'Evaluate'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\raghu\eclipse-workspace\Automationexcercise2
+  C:\Users\raghu\AppData\Local\Programs\Python\Python311\python311.zip
+  C:\Users\raghu\AppData\Local\Programs\Python\Python311\DLLs
+  C:\Users\raghu\AppData\Local\Programs\Python\Python311\Lib
+  C:\Users\raghu\AppData\Local\Programs\Python\Python311
+  C:\Users\raghu\AppData\Local\Programs\Python\Python311\Lib\site-packages</msg>
+</errors>
+</robot>
